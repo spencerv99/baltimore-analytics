@@ -111,6 +111,8 @@ An end-to-end data engineering and analytics pipeline that ingests Baltimore Cit
 
 **Clustering outlier contamination** — Industrial/entertainment areas (stadiums, industrial parks) have artificially inflated crime per capita due to near-zero residential population, pulling K-means into meaningless splits. Resolved by separating residential, institutional, and park/open space neighborhoods into distinct analytical groups before clustering.
 
+**Looker Studio GEOGRAPHY blend limitation** — Looker Studio's blend editor does not pass through BigQuery GEOGRAPHY fields, making it impossible to include polygon geometry in a blended data source. Resolved by pre-joining neighborhood_clusters and neighborhood_boundaries in a BigQuery view (analytics.neighborhood_map), allowing the GEOGRAPHY field to flow through directly to Looker Studio without a blend.
+
 ---
 
 ## Repository Structure

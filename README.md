@@ -182,3 +182,5 @@ All data sourced from [Baltimore City Open Data](https://data.baltimorecity.gov/
 - `service_requests_311`: Records before ~2010 lack coordinates
 - Neighborhoods with `population < 100` are parks, cemeteries, and industrial areas — excluded from residential clustering
 - Cluster labels are interpretive and based on mean feature profiles; individual neighborhoods may not perfectly match their cohort description
+- Coppin Heights and Saint Paul have single large development permits inflating per-capita figures for specific neighborhoods
+    - Permits capped at $500k to keep residential per capita more honest

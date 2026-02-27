@@ -2,7 +2,7 @@
 
 **Project:** `baltimore-analytics`  
 **Primary Table:** `analytics.neighborhood_clusters`  
-**Supporting Tables:** `analytics.neighborhood_boundaries`, `analytics.crime_incidents_current`, `analytics.service_requests_311`, `analytics.building_permits`  
+**Supporting Tables:** `analytics.neighborhood_boundaries`, `analytics.crime_incidents_all`, `analytics.service_requests_311`, `analytics.building_permits`  
 **Author:** Spencer  
 
 ---
@@ -62,9 +62,10 @@ You will need the following data sources connected. Add each via **Resource → 
 |---|---|---|
 | `neighborhood_clusters` | `analytics.neighborhood_clusters` | All pages — feature matrix + cluster labels |
 | `neighborhood_boundaries` | `analytics.neighborhood_boundaries` | Map polygon layer |
-| `crime_incidents` | `analytics.crime_incidents_current` | Crime trends over time |
+| `crime_incidents` | `analytics.crime_incidents_all` | Crime trends over time |
 | `service_requests_311` | `analytics.service_requests_311` | 311 time series |
 | `building_permits` | `analytics.building_permits` | Permit trends over time |
+
 
 ### Blended Data Source — Map Layer
 
@@ -226,12 +227,12 @@ Add a **Table** chart:
 
 **Purpose:** Crime over time — trends by year, neighborhood, and cluster.
 
-**Data sources:** `crime_incidents` (primary), `neighborhood_clusters` (for cluster labels via blend)
+**Data sources:** `crime_incidents_all` (primary — unified legacy + current), `neighborhood_clusters` (for cluster labels via blend)
 
 ### Blend Setup for This Page
 
 1. Create a new blend: `crime_with_clusters`
-2. Left: `crime_incidents` — join key: `neighborhood`
+2. Left: `crime_incidents_all` — join key: `neighborhood`
 3. Right: `neighborhood_clusters` — join key: `neighborhood`
 4. Include from right: `cluster_label`, `top_cluster_label`
 
